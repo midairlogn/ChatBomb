@@ -15,18 +15,20 @@ RECT desktop;
 int sleeptime = 50;
 int method = 1;
 char ifinput;
+string inputString;
 
 int copymessage(){
     cout << "请选择是否要在此窗口内输入消息内容：\n1.\t输入1或Y或y代表要（不支持表情包、文件等）\n2.\t输入其他内容代表不要（我已经将消息复制到剪切板） ： ";
     cin >> ifinput;
-    if (!(ifinput == '1' || ifinput == 'Y' || ifinput == 'y')) {
+    if (!( ifinput == '1' || ifinput == 'Y' || ifinput == 'y' )) {
         return 0;
     }
 
     // 获取用户输入并赋值给字符串
-  	string inputString;
+
   	cout << "请输入想发送的消息内容：";
-  	getline(cin, inputString);
+  	cin >> inputString;
+  	//getline(cin,inputString);
 
   	// 在屏幕上打印输入的字符串
   	cout << "您输入的内容是：" << inputString << endl;
@@ -68,9 +70,7 @@ int copymessage(){
 
 int wait(){
 	int seconds;
-	
-	cout << "请将此窗口移动到一边，不要遮挡目标窗口！" << endl << endl; 
-	Sleep(1000); 
+
   	// 获取用户输入的秒数
   	cout << "请输入你需要用来准备的秒数：";
   	cin >> seconds;
@@ -148,8 +148,31 @@ bool judge() {
     return 0;
 }
 
+int clickandctrlv() {
+    // 将鼠标移动到目标点
+    //SetCursorPos(x1, y1);
+    SetCursorPos(cursorPos1.x, cursorPos1.y);
+    Sleep(sleeptime);
+    // 模拟左键点击
+    //mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, x1, y1, 0, 0);
+    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, cursorPos1.x, cursorPos1.y, 0, 0);
+    cout << "\t 左键点击 操作成功！" << endl;
+
+    Sleep(sleeptime);
+    // 模拟 Ctrl+V
+    keybd_event(VK_CONTROL, 0, 0, 0); // 按下 Ctrl 键
+    keybd_event(0x56, 0, 0, 0);  // 按下 V 键
+    keybd_event(0x56, 0, KEYEVENTF_KEYUP, 0); // 释放 V 键
+    keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, 0); // 释放 Ctrl 键
+    cout << "\t Ctrl+v 操作成功！" << endl;
+
+    Sleep(sleeptime);
+
+    return 0;
+}
+
 int main() {
-    cout << "这是作者Midairlogn辛勤劳动的成果！" << endl << endl;
+    cout << "请支持作者 Midairlogn ：https://github.com/midairlogn" << endl << endl;
 	copymessage();
 	//控制输入的次数
 	int sendtimes;
@@ -161,6 +184,8 @@ int main() {
         method = 1;
     }
 
+    cout << "\n请将此窗口移动到一边，不要遮挡目标窗口！\n并将鼠标移动至消息发送框！" << endl << endl;
+    Sleep(1000);
 	wait();
 	cout << "\n请不要移动鼠标。\n1秒后获取鼠标位置！" << endl << endl;
   	Sleep(1000); 
@@ -173,27 +198,9 @@ int main() {
 	Sleep(1000); 
 	
 	for(int i=1;i<=sendtimes;i++){
-		// 将鼠标移动到目标点
-  		//SetCursorPos(x1, y1);
-  		SetCursorPos(cursorPos1.x, cursorPos1.y);
-  		Sleep(sleeptime);
-  		// 模拟左键点击
-  		//mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, x1, y1, 0, 0);
-  		mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, cursorPos1.x, cursorPos1.y, 0, 0);
-  		cout <<"\t 左键点击 操作成功！" << endl; 
-
-        Sleep(sleeptime);
-        // 模拟 Ctrl+V
-  		keybd_event(VK_CONTROL, 0, 0, 0); // 按下 Ctrl 键
-  		keybd_event(0x56, 0, 0, 0);  // 按下 V 键
-  		keybd_event(0x56, 0, KEYEVENTF_KEYUP, 0); // 释放 V 键
-  		keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, 0); // 释放 Ctrl 键
-  		cout <<"\t Ctrl+v 操作成功！" << endl; 
-	
-		Sleep(sleeptime);
-		
         switch ( method ) {
         case 1:
+            clickandctrlv();
             // 模拟Ctrl+Enter
             keybd_event(VK_CONTROL, 0, 0, 0); // 按下 Ctrl 键
             keybd_event(VK_RETURN, 0, 0, 0);  // 按下回车键
@@ -202,6 +209,7 @@ int main() {
             cout << "\t Ctrl+Enter 操作成功！" << endl;
             break;
         case 2:
+            clickandctrlv();
             // 模拟Enter
             keybd_event(VK_RETURN, 0, 0, 0);  // 按下回车键
             keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, 0); // 释放回车键
@@ -209,6 +217,8 @@ int main() {
             break;
         case 3:
         	if( i == 1 ){
+                cout << "\n请将此窗口移动到一边，不要遮挡目标窗口！\n并将鼠标移动至消息发送键处！" << endl << endl;
+                Sleep(1000);
         		wait();
 				cout << "\n请不要移动鼠标。\n1秒后获取鼠标位置！" << endl << endl;
   				Sleep(1000); 
@@ -219,7 +229,7 @@ int main() {
 				}
 				cout << "\n请不要移动鼠标或操作键盘，直到程序运行完成！" << endl  << endl;
 			}
-			
+            clickandctrlv();
             // 模拟鼠标左键点击
             // 将鼠标移动到目标点
             //SetCursorPos(x2, y2);
