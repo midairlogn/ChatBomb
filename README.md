@@ -1,6 +1,9 @@
 # ChatBomb
 这是`QQ/TIM/微信/Discord`等聊天软件的刷屏工具。    
 
+## 效果截图
+![screenshot](https://raw.githubusercontent.com/midairlogn/ChatBomb/main/screenshot.png)
+
 ## 适用系统   
 - Windows   
 
