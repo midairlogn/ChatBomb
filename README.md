@@ -1,17 +1,14 @@
 # ChatBomb
-ÕâÊÇ`QQ/TIM/Î¢ÐÅ/Discord`µÈÁÄÌìÈí¼þµÄË¢ÆÁ¹¤¾ß¡£    
+è¿™æ˜¯`QQ/TIM/å¾®ä¿¡/Discord`ç­‰èŠå¤©è½¯ä»¶çš„åˆ·å±å·¥å…·ã€‚    
 
-## Ð§¹û½ØÍ¼
-![screenshot](https://raw.githubusercontent.com/midairlogn/ChatBomb/main/screenshot.png)
-
-## ÊÊÓÃÏµÍ³   
+## é€‚ç”¨ç³»ç»Ÿ   
 - Windows   
 
-## ²Ù×÷²½Öè    
-1.	ÔËÐÐ`ChatBomb.exe`( *¿ÉÄÜÐèÒª¹ÜÀíÔ±È¨ÏÞ£¬Õý³£Çé¿öÏÂ²»ÐèÒª* )   
-2.	°´ÕÕÌáÊ¾Óï²Ù×÷¼´¿É£¡   
+## æ“ä½œæ­¥éª¤    
+1.	è¿è¡Œ`ChatBomb.exe`( *å¯èƒ½éœ€è¦ç®¡ç†å‘˜æƒé™ï¼Œæ­£å¸¸æƒ…å†µä¸‹ä¸éœ€è¦* )   
+2.	æŒ‰ç…§æç¤ºè¯­æ“ä½œå³å¯ï¼   
 
-## ×Ô¶¨Òå·¢ÏûÏ¢¼ä¸ô£¨µ¥Î»£ººÁÃë£©     
-Ä¬ÈÏ50ºÁÃë¡£     
-ÐÞ¸Ä`int sleeptime = 50;`ÖÐµÄÊýÖµ¡£µ÷Õû·¢ÏûÏ¢Êó±ê¼üÅÌ²Ù×÷µÄ¼ä¸ô£¬·¢ÏûÏ¢¼ä¸ôÊÇÆä4±¶£¬½¨ÒéÊ¹ÓÃ50-100¡£    
-Ö®ºóÖØÐÂ±àÒë¼´¿É¡£   
+## è‡ªå®šä¹‰å‘æ¶ˆæ¯é—´éš”ï¼ˆå•ä½ï¼šæ¯«ç§’ï¼‰     
+é»˜è®¤50æ¯«ç§’ã€‚     
+ä¿®æ”¹`int sleeptime = 50;`ä¸­çš„æ•°å€¼ã€‚è°ƒæ•´å‘æ¶ˆæ¯é¼ æ ‡é”®ç›˜æ“ä½œçš„é—´éš”ï¼Œå‘æ¶ˆæ¯é—´éš”æ˜¯å…¶4å€ï¼Œå»ºè®®ä½¿ç”¨50-100ã€‚    
+ä¹‹åŽé‡æ–°ç¼–è¯‘å³å¯ã€‚   
